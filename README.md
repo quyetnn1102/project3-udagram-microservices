@@ -51,7 +51,7 @@ eksctl version
 kubectl version --short --client
 ```
 
-![setupversions](screenshots/setupversions.png)
+![setupversions]()
 
 ### Setup Environment Variables
 
@@ -96,8 +96,8 @@ The project's images are available on Docker Hub :
 
 - [quyetnn1102/udagram-api-feed](https://hub.docker.com/repository/docker/quyetnn1102/udagram-api-feed)
 - [quyetnn1102/udagram-api-user](https://hub.docker.com/repository/docker/quyetnn1102/udagram-api-user)
-- [quyetnn1102/udagram-frontend](https://hub.docker.com/repository/docker/quyetnn1102/udacity-frontend)
-- [quyetnn1102/udagram-reverseproxy](https://hub.docker.com/repository/docker/quyetnn1102/udacity-nginx-reverseproxy)
+- [quyetnn1102/udagram-frontend](https://hub.docker.com/repository/docker/quyetnn1102/udagram-frontend)
+- [quyetnn1102/udagram-reverseproxy](https://hub.docker.com/repository/docker/quyetnn1102/udagram-reverseproxy)
 
 ![dockerhub]()
 
@@ -143,7 +143,7 @@ Your cluster is created and visible in the [AWS Console/EKS](https://eu-west-3.c
 
 #### Setup Kubernetes Environment
 
-Setup the ubernetes environment by following the documentation in [udagram-deployment/k8s](udacity-c3-deployment/k8s)
+Setup the ubernetes environment by following the documentation in [udagram-deployment/k8s](udagram-deployment/k8s)
 
 #### Check status of all resources (services, delpoyments, pods, hpa)
 

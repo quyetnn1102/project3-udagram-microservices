@@ -70,10 +70,10 @@ ionic build
 
 ### Build your image
 
-`docker build -t kendyjm/udacity-frontend .`
+`docker build -t quyetnn1102/udagram-frontend .`
 Replace {dockerid} with your docker user's id.
 The -t flag lets you tag your image so it's easier to find later using the docker images command.
 
 ### Run your image
 
-`docker run --rm --publish 8100:80 --name frontend kendyjm/udacity-frontend`
+`docker run --rm --publish 8100:80 --name frontend quyetnn1102/udagram-frontend`
