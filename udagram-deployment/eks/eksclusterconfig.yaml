@@ -3,7 +3,7 @@ kind: ClusterConfig
 
 metadata:
   name: udagram
-  region: eu-west-3
+  region: us-west-2
   version: "1.17"
 
 managedNodeGroups:
