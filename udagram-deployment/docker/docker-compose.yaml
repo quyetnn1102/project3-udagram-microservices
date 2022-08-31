@@ -44,6 +44,6 @@ services:
       ACCESS_CONTROL_ALLOW_ORIGIN: $ACCESS_CONTROL_ALLOW_ORIGIN
       SENTRY_DNS_USER: $SENTRY_DNS_USER
   frontend:
-    image: quyetnn1102/udacity-frontend
+    image: quyetnn1102/udagram-frontend
     ports:
       - "8100:80"
