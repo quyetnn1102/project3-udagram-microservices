@@ -13,7 +13,7 @@ before_install:
   - sudo mv docker-compose /usr/local/bin
   - docker -v
   - docker-compose version --short
-  - curl --silent --location "https://github.com/weaveworks/eksctl/releases/download/latest_release/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
+  - curl --silent --location "https://github.com/weaveworks/eksctl/releases/download/latest_release/eksctl_$(uname -s)_amd64.tar.gz" | tar xf -C /tmp
   - sudo mv /tmp/eksctl /usr/local/bin
   - eksctl version  
   - curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
@@ -22,8 +22,8 @@ before_install:
   - kubectl version --short --client
 
 install:
-  - docker-compose -f udacity-c3-deployment/docker/docker-compose-build.yaml build --parallel 
-  - docker-compose -f udacity-c3-deployment/docker/docker-compose-build.yaml push
+  - docker-compose -f project3-udagram-microservices/docker/docker-compose-build.yaml build --parallel 
+  - docker-compose -f project3-udagram-microservices/docker/docker-compose-build.yaml push
 
 
 
