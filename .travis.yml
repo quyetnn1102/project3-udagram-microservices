@@ -13,7 +13,7 @@ before_install:
   - sudo mv docker-compose /usr/local/bin
   - docker -v
   - docker-compose version --short
-  - curl --silent --location "https://github.com/weaveworks/eksctl/releases/download/latest_release/eksctl_$(uname -s)_amd64.tar.gz" | tar xf -C /tmp
+  - curl --silent --location "https://github.com/weaveworks/eksctl/releases/eksctl_$(uname -s)_amd64.tar.gz" | tar xvpf -C /tmp
   - sudo mv /tmp/eksctl /usr/local/bin
   - eksctl version  
   - curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
