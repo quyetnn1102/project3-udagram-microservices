@@ -1,28 +1,34 @@
-language: minimal
+language: node_js
+node_js:
+  - 12
 
-services: docker
+services:
+  - docker
 
-env:
-  - DOCKER_COMPOSE_VERSION=1.25.5
-
-before_install:
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - sudo rm /usr/local/bin/docker-compose
-  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
-  - chmod +x docker-compose
-  - sudo mv docker-compose /usr/local/bin
-  - docker -v
-  - docker-compose version --short
-  - curl --silent --location "https://github.com/weaveworks/eksctl/releases/download/v0.110.0/eksctl_$(uname -s)_amd64.tar.gz" | tar -xvpf -C /tmp
-  - sudo mv /tmp/eksctl /usr/local/bin
-  - curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
-  - chmod +x ./kubectl
-  - sudo mv ./kubectl /usr/local/bin/kubectl
-  - kubectl version --short --client
-
+# Pre-testing installs
 install:
-  - docker-compose -f project3-udagram-microservices/docker/docker-compose-build.yaml build --parallel 
-  - docker-compose -f project3-udagram-microservices/docker/docker-compose-build.yaml push
+  - echo "nothing needs to be installed"
 
+# Scripts to be run such as tests
+before_script:
+  - echo "no tests"
 
+script:
+  # Build
+  - docker build -t udagram-api-feed ./udagram-api-feed
+  - docker build -t udagram-api-user ./udagram-api-user
+  - docker build -t udagram-frontend ./udagram-frontend
+  - docker build -t reverseproxy ./udagram-reverseproxy
+  # Tagging
+  - docker tag udagram-api-feed quyetnn1102/udagram-api-feed:v3
+  - docker tag udagram-api-user quyetnn1102/udagram-api-user:v3
+  - docker tag udagram-frontend quyetnn1102/udagram-frontend:v3
+  - docker tag reverseproxy quyetnn1102/reverseproxy:v3
 
+after_success:
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  # Push
+  - docker push quyetnn1102/udagram-api-feed:v3
+  - docker push quyetnn1102/udagram-api-user:v3
+  - docker push quyetnn1102/udagram-frontend:v3
+  - docker push quyetnn1102/reverseproxy:v3
