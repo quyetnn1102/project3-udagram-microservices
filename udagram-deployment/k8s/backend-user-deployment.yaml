@@ -57,5 +57,3 @@ spec:
               name: env-secret
               key: DB_USERNAME
       restartPolicy: Always
-
-

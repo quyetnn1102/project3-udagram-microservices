@@ -15,7 +15,7 @@ spec:
         service: reverseproxy
     spec:
       containers:
-      - image: quyetnn102/udagram-reverseproxy
+      - image: quyetnn1102/udagram-reverseproxy
         name: reverseproxy
         imagePullPolicy: Always          
         resources:
@@ -28,5 +28,4 @@ spec:
         ports:
         - containerPort: 8080
       restartPolicy: Always
-
 

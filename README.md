@@ -39,20 +39,6 @@ Required tools need to be install:
 4. [Eksctl](https://docs.aws.amazon.com/eks/latest/userguide/getting-started-eksctl.html)  
 5. [Kubectl](https://docs.aws.amazon.com/eks/latest/userguide/install-kubectl.html)
 
-### Installation
-
-Test that your installation is successful with the following commands:
-
-```bash
-aws --version
-docker --version
-docker-compose version --short
-eksctl version
-kubectl version --short --client
-```
-
-![setupversions]()
-
 ### Setup Environment Variables
 
 Open your bash profile to store your application variables at OS level to use them within and across applications:
@@ -99,7 +85,7 @@ The project's images are available on Docker Hub :
 - [quyetnn1102/udagram-frontend](https://hub.docker.com/repository/docker/quyetnn1102/udacity-frontend)
 - [quyetnn1102/udagram-reverseproxy](https://hub.docker.com/repository/docker/quyetnn1102/udagram-reverseproxy)
 
-![dockerhub]()
+![docker_hub_images.png](screenshots/docker_hub_images.png)
 
 Just push these images executing this script:
 
@@ -118,32 +104,32 @@ Build the docker images by following the documentation in [udagram-deployment/do
 
 Check images available : `docker images`  
 
-![dockerimages]()
+![docker_images](screenshots/docker_images.png)
 
 #### 3) Run
 
 Run your docker containers: `docker-compose up`  
 
-![dockercomposeup]()  
+![dockercomposeup_success](screenshots/dockercomposeup_success.png)  
 
 #### 4) Access Udagram
 
 Browse the frontend application : <http://localhost:8100/>
 
-![udagramlocalhost]()
+![udagram](screenshots/localhost_app.png)
 
 To exit run `control + C`
 
 ### Run with a Kubernetes Cluster on Amazon EKS
 
-Create your cluster with `eksctl` by following documentation in [udagram-deployment/eks](udacity-c3-deployment/eks)
+Create your cluster following the instruction 
 
 Your cluster is created and visible in the [AWS Console/EKS](https://eu-west-3.console.aws.amazon.com/eks/home#/clusters):
-![eksclusterconsole]()
+![aws_eks_console](screenshots/aws_eks_console.png)
 
 #### Setup Kubernetes Environment
 
-Setup the ubernetes environment by following the documentation in [udagram-deployment/k8s](udacity-c3-deployment/k8s)
+Setup the kubernetes environment by following the documentation in [udagram-deployment/k8s](udacity-c3-deployment/k8s)
 
 #### Check status of all resources (services, delpoyments, pods, hpa)
 
@@ -151,7 +137,7 @@ Setup the ubernetes environment by following the documentation in [udagram-deplo
 kubectl get all
 ```
 
-![kubernetesresourcesstatus]()
+![kubectl_resource_status](screenshots/kubectl_resource_status.png)
 
 #### Check pods logs
 
@@ -159,7 +145,7 @@ kubectl get all
 kubectl logs <podId>
 ```
 
-![kubernetespodslogs]()
+![kubectl_pod_logs](screenshots/kubectl_pod_logs.png)
 
 #### Connect the Services with Port Forwarding
 
@@ -180,5 +166,6 @@ Browse the frontend application : <http://localhost:8100/>
 - Add your environment variables to the project repository in [Travis](https://travis-ci.com) by selecting the setting option.
 - Commit and Push your changes trigger a Travis build.
 - Check the build status page to see if your build passes or fails according to the return status of the build command by visiting [TravisCL](https://travis-ci.com) and selecting your repository.
-
-![traviscibuildpassed]()
+![traviscisetup](screenshots/Travis_setup_github.png)
+![traviscibuildpassed1](screenshots/travis_build_success_1.png)
+![traviscibuildpassed2](screenshots/travis_build_success_2.png)

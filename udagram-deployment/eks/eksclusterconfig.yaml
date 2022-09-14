@@ -2,18 +2,19 @@ apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 
 metadata:
-  name: udagram
+  name: udagram-cluster
   region: us-west-2
-  version: "1.17"
+  version: "1.22"
 
 managedNodeGroups:
-  - name: udagram-ng
+  - name: udagram-cluster-ng
     instanceType: t3.medium
     desiredCapacity: 3
     minSize: 1    
     maxSize: 4
     ssh:
       allow: true
+      publicKeyPath: /Users/quyetnn/Projects/Udacity/Cloud Developer/project3-udagram-microservices/udagram-deployment/eks/ec2-keypair.pub
       
 cloudWatch:
   clusterLogging:

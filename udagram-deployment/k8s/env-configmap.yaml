@@ -1,13 +1,15 @@
 apiVersion: v1
 kind: ConfigMap
-data:
-  AWS_MEDIA_BUCKET: ___INSERT_AWS_MEDIA_BUCKET___
-  AWS_PROFILE: ___INSERT_AWS_PROFILE___
-  AWS_REGION: ___INSERT_AWS_REGION___
-  JWT_SECRET: ___INSERT_JWT_SECRET___
-  DB_NAME: ___INSERT_DB_NAME___
-  DB_HOST: ___INSERT_DB_HOST___
-  ACCESS_CONTROL_ALLOW_ORIGIN: ___INSERT_ACCESS_CONTROL_ALLOW_ORIGIN___
 metadata:
   name: env-config
-  
+data:
+  AWS_MEDIA_BUCKET: project3-udagram-bucket
+  AWS_PROFILE: default
+  AWS_REGION: us-west-2
+  JWT_SECRET: hello
+  DB_NAME: postgres
+  DB_HOST: database-test1.csvvxnfuea73.us-west-2.rds.amazonaws.com
+  DB_USERNAME: cG9zdGdyZXM=
+  DB_PASSWORD: QWJjZGUxMjM0NS0=
+  URL: http://a136666f5bd234f6a948339558acd6ef-1456095971.us-west-2.elb.amazonaws.com
+  ACCESS_CONTROL_ALLOW_ORIGIN: http://a136666f5bd234f6a948339558acd6ef-1456095971.us-west-2.elb.amazonaws.com
