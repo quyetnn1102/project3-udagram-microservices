@@ -125,14 +125,43 @@ Create your cluster following the instruction
 Your cluster is created and visible in the [AWS Console/EKS](https://eu-west-3.console.aws.amazon.com/eks/home#/clusters):
 ![aws_eks_console](screenshots/aws_eks_console.png)
 
-#### Setup Kubernetes Environment
+### Setup Kubernetes Environment
 
-Setup the kubernetes environment by following the documentation in [udagram-deployment/k8s](udacity-c3-deployment/k8s)
-
-#### Check status of all resources (services, delpoyments, pods, hpa)
-
+ Setup the kubernetes environment by following the documentation in [udagram-deployment/k8s](udacity-deployment/k8s)
 ```bash
-kubectl get all
+kubectl apply -f env-secret.yaml
+
+```
+### Check status of all resources (services, delpoyments, pods, hpa)
+
+#### Apply kubectl environment variables
+```bash
+kubectl apply -f aws-secret.yaml
+kubectl apply -f env-secret.yaml
+kubectl apply -f env-configmap.yaml
+```
+
+#### Apply kubectl deployments
+```bash
+kubectl apply -f backend-feed-deployment.yaml
+kubectl apply -f backend-user-deployment.yaml
+kubectl apply -f frontend-deployment.yaml
+kubectl apply -f reverseproxy-deployment.yaml
+```
+
+#### Apply kubectl services
+```bash
+kubectl apply -f backend-feed-service.yaml
+kubectl apply -f backend-user-service.yaml
+kubectl apply -f reverseproxy-service.yaml
+kubectl apply -f frontend-service.yaml
+```
+
+#### Expose kubectl to nginx load balancer
+```bash
+kubectl expose deployment reverseproxy --type=LoadBalancer --name=publicreverseproxy
+kubectl expose deployment frontend --type=LoadBalancer --name=publicfrontend
+
 ```
 
 ![kubectl_resource_status](screenshots/kubectl_resource_status.png)
@@ -142,9 +171,11 @@ kubectl get all
 ```bash
 kubectl logs <podId>
 ```
-
+### Backend logs
 ![kubectl_pod_logs](screenshots/kubectl_pod_logs.png)
 
+### Reverseproxy logs
+![kubectl_reverseproxy_logs](screenshots/kubectl_reverseproxy_status.png)
 #### Verify the deployment in EKS cluster
 
 Browse the frontend application : <http://a136666f5bd234f6a948339558acd6ef-1456095971.us-west-2.elb.amazonaws.com/>
