@@ -190,8 +190,8 @@ Browse the frontend application : <http://a136666f5bd234f6a948339558acd6ef-14560
 ![backend-user-log](screenshots/backend_user_activities_logs.png)
 
 ## Kubernetes HPA logs
-![kubectl-hpa](screenshots/hpa.png)
-
+![kubectl-hpa](screenshots/hpa_1.png)
+![kubectl-hpa](screenshots/hpa_1.png)
 
 ### CI/CD with Travis
 
