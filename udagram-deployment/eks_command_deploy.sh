@@ -7,12 +7,13 @@ kubectl apply -f env-configmap.yaml
 kubectl apply -f backend-feed-deployment.yaml
 kubectl apply -f backend-user-deployment.yaml
 kubectl apply -f reverseproxy-deployment.yaml
-
+kubectl apply -f frontend-deployment.yaml
 
 # Services deployment
 kubectl apply -f backend-feed-service.yaml
 kubectl apply -f backend-user-service.yaml
 kubectl apply -f reverseproxy-service.yaml
+kubectl apply -f frontend-service.yaml
 
 # exposed reverseproxy
 kubectl expose deployment reverseproxy --type=LoadBalancer --name=publicreverseproxy
@@ -20,8 +21,8 @@ kubectl expose deployment reverseproxy --type=LoadBalancer --name=publicreversep
 # forward front-end port
 kubectl port-forward frontend-65d6486678-ztlf4 8100:8100
 
-kubectl apply -f frontend-deployment.yaml
-kubectl apply -f frontend-service.yaml
+
+
 
 # exposed front end 
 kubectl expose deployment frontend --type=LoadBalancer --name=publicfrontend

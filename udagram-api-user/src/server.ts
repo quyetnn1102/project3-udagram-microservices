@@ -40,7 +40,7 @@ import * as Sentry from '@sentry/node';
 
   // Start the Server
   app.listen( port, () => {
-      console.log( `server running http://localhost:${ port }` );
+      console.log( `server running ${config.cors.access_control_allow_origin}:${ port }` );
       console.log( `press CTRL+C to stop server` );
   } );
 })();

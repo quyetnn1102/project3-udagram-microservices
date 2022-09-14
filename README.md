@@ -112,13 +112,11 @@ Run your docker containers: `docker-compose up`
 
 ![dockercomposeup_success](screenshots/dockercomposeup_success.png)  
 
-#### 4) Access Udagram
+#### 4) Access Udagram Locally
 
 Browse the frontend application : <http://localhost:8100/>
 
 ![udagram](screenshots/localhost_app.png)
-
-To exit run `control + C`
 
 ### Run with a Kubernetes Cluster on Amazon EKS
 
@@ -147,17 +145,11 @@ kubectl logs <podId>
 
 ![kubectl_pod_logs](screenshots/kubectl_pod_logs.png)
 
-#### Connect the Services with Port Forwarding
+#### Verify the deployment in EKS cluster
 
-Use Port Forwarding to the Frontend and Reverse Proxy services:
-The port forwarding must be done in Separate terminals, to run both services at the same time.
+Browse the frontend application : <http://a136666f5bd234f6a948339558acd6ef-1456095971.us-west-2.elb.amazonaws.com/>
 
-```bash
-kubectl port-forward service/frontend 8100:8100
-kubectl port-forward service/reverseproxy 8080:8080
-```
-
-Browse the frontend application : <http://localhost:8100/>
+![frontend_eks_running](screenshots/udagram_cloud_app.png)
 
 ### CI/CD with Travis
 
