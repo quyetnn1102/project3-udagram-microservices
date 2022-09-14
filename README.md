@@ -182,6 +182,17 @@ Browse the frontend application : <http://a136666f5bd234f6a948339558acd6ef-14560
 
 ![frontend_eks_running](screenshots/udagram_cloud_app.png)
 
+## Kubernetes pod logs
+
+### Backend-feed
+![backend-feed-log](screenshots/backend_feed_activities_logs.png)
+### Backend-user
+![backend-user-log](screenshots/backend_user_activities_logs.png)
+
+## Kubernetes HPA logs
+![kubectl-hpa](screenshots/hpa.png)
+
+
 ### CI/CD with Travis
 
 - Sign up for [Travis](https://travis-ci.com) and connect your Github application repository to TravisCL.
